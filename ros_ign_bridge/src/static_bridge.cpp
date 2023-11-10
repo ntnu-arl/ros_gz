@@ -39,12 +39,12 @@ int main(int argc, char * argv[])
   ros::NodeHandle ros_node;
 
   // Ignition node
-  auto ign_node = std::make_shared<ignition::transport::Node>();
+  auto ign_node = std::make_shared<gz::transport::Node>();
 
   // bridge one example topic
   std::string topic_name = "chatter";
   std::string ros_type_name = "std_msgs/String";
-  std::string ign_type_name = "ignition.msgs.StringMsg";
+  std::string ign_type_name = "gz.msgs.StringMsg";
   size_t queue_size = 10;
 
   auto handles = ros_ign_bridge::create_bidirectional_bridge(
@@ -55,7 +55,7 @@ int main(int argc, char * argv[])
   async_spinner.start();
 
   // Zzzzzz.
-  ignition::transport::waitForShutdown();
+  gz::transport::waitForShutdown();
 
   return 0;
 }

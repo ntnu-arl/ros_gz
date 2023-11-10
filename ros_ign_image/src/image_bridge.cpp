@@ -32,7 +32,7 @@ class Handler
   public: Handler(
       const std::string & _topic,
       std::shared_ptr<image_transport::ImageTransport> _it_node,
-      std::shared_ptr<ignition::transport::Node> _ign_node)
+      std::shared_ptr<gz::transport::Node> _ign_node)
   {
     this->ros_pub = _it_node->advertise(_topic, 1);
 
@@ -41,7 +41,7 @@ class Handler
 
   /// \brief Callback when Ignition image is received
   /// \param[in] _ign_msg Ignition message
-  private: void OnImage(const ignition::msgs::Image & _ign_msg)
+  private: void OnImage(const gz::msgs::Image & _ign_msg)
   {
     sensor_msgs::Image ros_msg;
     ros_ign_bridge::convert_ign_to_ros(_ign_msg, ros_msg);
@@ -77,7 +77,7 @@ int main(int argc, char * argv[])
   auto it_node = std::make_shared<image_transport::ImageTransport>(ros_node);
 
   // Ignition node
-  auto ign_node = std::make_shared<ignition::transport::Node>();
+  auto ign_node = std::make_shared<gz::transport::Node>();
 
   std::vector<std::shared_ptr<Handler>> handlers;
 
@@ -92,7 +92,7 @@ int main(int argc, char * argv[])
   ros::AsyncSpinner async_spinner(1);
   async_spinner.start();
 
-  ignition::transport::waitForShutdown();
+  gz::transport::waitForShutdown();
 
   return 0;
 }

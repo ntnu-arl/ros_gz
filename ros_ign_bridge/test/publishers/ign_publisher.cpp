@@ -46,178 +46,178 @@ int main(int /*argc*/, char **/*argv*/)
   std::signal(SIGTERM, signal_handler);
 
   // Create a transport node and advertise a topic.
-  ignition::transport::Node node;
+  gz::transport::Node node;
 
-  // ignition::msgs::Boolean.
-  auto bool_pub = node.Advertise<ignition::msgs::Boolean>("bool");
-  ignition::msgs::Boolean bool_msg;
+  // gz::msgs::Boolean.
+  auto bool_pub = node.Advertise<gz::msgs::Boolean>("bool");
+  gz::msgs::Boolean bool_msg;
   ros_ign_bridge::testing::createTestMsg(bool_msg);
 
-  // ignition::msgs::Color.
-  auto color_pub = node.Advertise<ignition::msgs::Color>("color");
-  ignition::msgs::Color color_msg;
+  // gz::msgs::Color.
+  auto color_pub = node.Advertise<gz::msgs::Color>("color");
+  gz::msgs::Color color_msg;
   ros_ign_bridge::testing::createTestMsg(color_msg);
 
-  // ignition::msgs::Empty.
-  auto empty_pub = node.Advertise<ignition::msgs::Empty>("empty");
-  ignition::msgs::Empty empty_msg;
+  // gz::msgs::Empty.
+  auto empty_pub = node.Advertise<gz::msgs::Empty>("empty");
+  gz::msgs::Empty empty_msg;
 
-  // ignition::msgs::Int32.
-  auto int32_pub = node.Advertise<ignition::msgs::Int32>("int32");
-  ignition::msgs::Int32 int32_msg;
+  // gz::msgs::Int32.
+  auto int32_pub = node.Advertise<gz::msgs::Int32>("int32");
+  gz::msgs::Int32 int32_msg;
   ros_ign_bridge::testing::createTestMsg(int32_msg);
 
-  // ignition::msgs::Float.
-  auto float_pub = node.Advertise<ignition::msgs::Float>("float");
-  ignition::msgs::Float float_msg;
+  // gz::msgs::Float.
+  auto float_pub = node.Advertise<gz::msgs::Float>("float");
+  gz::msgs::Float float_msg;
   ros_ign_bridge::testing::createTestMsg(float_msg);
 
-  // ignition::msgs::Double.
-  auto double_pub = node.Advertise<ignition::msgs::Double>("double");
-  ignition::msgs::Double double_msg;
+  // gz::msgs::Double.
+  auto double_pub = node.Advertise<gz::msgs::Double>("double");
+  gz::msgs::Double double_msg;
   ros_ign_bridge::testing::createTestMsg(double_msg);
 
-  // ignition::msgs::Header.
-  auto header_pub = node.Advertise<ignition::msgs::Header>("header");
-  ignition::msgs::Header header_msg;
+  // gz::msgs::Header.
+  auto header_pub = node.Advertise<gz::msgs::Header>("header");
+  gz::msgs::Header header_msg;
   ros_ign_bridge::testing::createTestMsg(header_msg);
 
-  // ignition::msgs::StringMsg.
-  auto string_pub = node.Advertise<ignition::msgs::StringMsg>("string");
-  ignition::msgs::StringMsg string_msg;
+  // gz::msgs::StringMsg.
+  auto string_pub = node.Advertise<gz::msgs::StringMsg>("string");
+  gz::msgs::StringMsg string_msg;
   ros_ign_bridge::testing::createTestMsg(string_msg);
 
-  // ignition::msgs::Quaternion.
+  // gz::msgs::Quaternion.
   auto quaternion_pub =
-    node.Advertise<ignition::msgs::Quaternion>("quaternion");
-  ignition::msgs::Quaternion quaternion_msg;
+    node.Advertise<gz::msgs::Quaternion>("quaternion");
+  gz::msgs::Quaternion quaternion_msg;
   ros_ign_bridge::testing::createTestMsg(quaternion_msg);
 
-  // ignition::msgs::Vector3d.
-  auto vector3_pub = node.Advertise<ignition::msgs::Vector3d>("vector3");
-  ignition::msgs::Vector3d vector3_msg;
+  // gz::msgs::Vector3d.
+  auto vector3_pub = node.Advertise<gz::msgs::Vector3d>("vector3");
+  gz::msgs::Vector3d vector3_msg;
   ros_ign_bridge::testing::createTestMsg(vector3_msg);
 
-  // ignition::msgs::Clock.
-  auto clock_pub = node.Advertise<ignition::msgs::Clock>("clock");
-  ignition::msgs::Clock clock_msg;
+  // gz::msgs::Clock.
+  auto clock_pub = node.Advertise<gz::msgs::Clock>("clock");
+  gz::msgs::Clock clock_msg;
   ros_ign_bridge::testing::createTestMsg(clock_msg);
 
-  // ignition::msgs::Point.
-  auto point_pub = node.Advertise<ignition::msgs::Vector3d>("point");
-  ignition::msgs::Vector3d point_msg;
+  // gz::msgs::Point.
+  auto point_pub = node.Advertise<gz::msgs::Vector3d>("point");
+  gz::msgs::Vector3d point_msg;
   ros_ign_bridge::testing::createTestMsg(point_msg);
 
-  // ignition::msgs::Pose.
-  auto pose_pub = node.Advertise<ignition::msgs::Pose>("pose");
-  ignition::msgs::Pose pose_msg;
+  // gz::msgs::Pose.
+  auto pose_pub = node.Advertise<gz::msgs::Pose>("pose");
+  gz::msgs::Pose pose_msg;
   ros_ign_bridge::testing::createTestMsg(pose_msg);
 
-  // ignition::msgs::PoseStamped.
-  auto pose_stamped_pub = node.Advertise<ignition::msgs::Pose>("pose_stamped");
-  ignition::msgs::Pose pose_stamped_msg;
+  // gz::msgs::PoseStamped.
+  auto pose_stamped_pub = node.Advertise<gz::msgs::Pose>("pose_stamped");
+  gz::msgs::Pose pose_stamped_msg;
   ros_ign_bridge::testing::createTestMsg(pose_stamped_msg);
 
-  // ignition::msgs::Pose_V.
-  auto pose_v_pub = node.Advertise<ignition::msgs::Pose_V>("pose_array");
-  ignition::msgs::Pose_V pose_v_msg;
+  // gz::msgs::Pose_V.
+  auto pose_v_pub = node.Advertise<gz::msgs::Pose_V>("pose_array");
+  gz::msgs::Pose_V pose_v_msg;
   ros_ign_bridge::testing::createTestMsg(pose_v_msg);
 
-  // ignition::msgs::Transform.
+  // gz::msgs::Transform.
   auto transform_pub =
-      node.Advertise<ignition::msgs::Pose>("transform");
-  ignition::msgs::Pose transform_msg;
+      node.Advertise<gz::msgs::Pose>("transform");
+  gz::msgs::Pose transform_msg;
   ros_ign_bridge::testing::createTestMsg(transform_msg);
 
-  // ignition::msgs::TransformStamped.
+  // gz::msgs::TransformStamped.
   auto transform_stamped_pub =
-      node.Advertise<ignition::msgs::Pose>("transform_stamped");
-  ignition::msgs::Pose transform_stamped_msg;
+      node.Advertise<gz::msgs::Pose>("transform_stamped");
+  gz::msgs::Pose transform_stamped_msg;
   ros_ign_bridge::testing::createTestMsg(transform_stamped_msg);
 
-  // ignition::msgs::Pose_V.
+  // gz::msgs::Pose_V.
   auto tf2_message_pub =
-      node.Advertise<ignition::msgs::Pose_V>("tf2_message");
-  ignition::msgs::Pose_V tf2_msg;
+      node.Advertise<gz::msgs::Pose_V>("tf2_message");
+  gz::msgs::Pose_V tf2_msg;
   ros_ign_bridge::testing::createTestMsg(tf2_msg);
 
-  // ignition::msgs::Image.
-  auto image_pub = node.Advertise<ignition::msgs::Image>("image");
-  ignition::msgs::Image image_msg;
+  // gz::msgs::Image.
+  auto image_pub = node.Advertise<gz::msgs::Image>("image");
+  gz::msgs::Image image_msg;
   ros_ign_bridge::testing::createTestMsg(image_msg);
 
-  // ignition::msgs::CameraInfo.
-  auto camera_info_pub = node.Advertise<ignition::msgs::CameraInfo>("camera_info");
-  ignition::msgs::CameraInfo camera_info_msg;
+  // gz::msgs::CameraInfo.
+  auto camera_info_pub = node.Advertise<gz::msgs::CameraInfo>("camera_info");
+  gz::msgs::CameraInfo camera_info_msg;
   ros_ign_bridge::testing::createTestMsg(camera_info_msg);
 
-  // ignition::msgs::FluidPressure.
-  auto fluid_pressure_pub = node.Advertise<ignition::msgs::FluidPressure>("fluid_pressure");
-  ignition::msgs::FluidPressure fluid_pressure_msg;
+  // gz::msgs::FluidPressure.
+  auto fluid_pressure_pub = node.Advertise<gz::msgs::FluidPressure>("fluid_pressure");
+  gz::msgs::FluidPressure fluid_pressure_msg;
   ros_ign_bridge::testing::createTestMsg(fluid_pressure_msg);
 
-  // ignition::msgs::IMU.
-  auto imu_pub = node.Advertise<ignition::msgs::IMU>("imu");
-  ignition::msgs::IMU imu_msg;
+  // gz::msgs::IMU.
+  auto imu_pub = node.Advertise<gz::msgs::IMU>("imu");
+  gz::msgs::IMU imu_msg;
   ros_ign_bridge::testing::createTestMsg(imu_msg);
 
-  // ignition::msgs::LaserScan.
-  auto laserscan_pub = node.Advertise<ignition::msgs::LaserScan>("laserscan");
-  ignition::msgs::LaserScan laserscan_msg;
+  // gz::msgs::LaserScan.
+  auto laserscan_pub = node.Advertise<gz::msgs::LaserScan>("laserscan");
+  gz::msgs::LaserScan laserscan_msg;
   ros_ign_bridge::testing::createTestMsg(laserscan_msg);
 
-  // ignition::msgs::Magnetometer.
-  auto magnetic_pub = node.Advertise<ignition::msgs::Magnetometer>("magnetic");
-  ignition::msgs::Magnetometer magnetometer_msg;
+  // gz::msgs::Magnetometer.
+  auto magnetic_pub = node.Advertise<gz::msgs::Magnetometer>("magnetic");
+  gz::msgs::Magnetometer magnetometer_msg;
   ros_ign_bridge::testing::createTestMsg(magnetometer_msg);
 
-  // ignition::msgs::NavSat.
-  auto navsat_pub = node.Advertise<ignition::msgs::NavSat>("navsat");
-  ignition::msgs::NavSat navsat_msg;
+  // gz::msgs::NavSat.
+  auto navsat_pub = node.Advertise<gz::msgs::NavSat>("navsat");
+  gz::msgs::NavSat navsat_msg;
   ros_ign_bridge::testing::createTestMsg(navsat_msg);
 
-  // ignition::msgs::Actuators.
-  auto actuators_pub = node.Advertise<ignition::msgs::Actuators>("actuators");
-  ignition::msgs::Actuators actuators_msg;
+  // gz::msgs::Actuators.
+  auto actuators_pub = node.Advertise<gz::msgs::Actuators>("actuators");
+  gz::msgs::Actuators actuators_msg;
   ros_ign_bridge::testing::createTestMsg(actuators_msg);
 
-  // ignition::msgs::OccupancyGrid
-  auto map_pub = node.Advertise<ignition::msgs::OccupancyGrid>("map");
-  ignition::msgs::OccupancyGrid map_msg;
+  // gz::msgs::OccupancyGrid
+  auto map_pub = node.Advertise<gz::msgs::OccupancyGrid>("map");
+  gz::msgs::OccupancyGrid map_msg;
   ros_ign_bridge::testing::createTestMsg(map_msg);
 
-  // ignition::msgs::Odometry.
-  auto odometry_pub = node.Advertise<ignition::msgs::Odometry>("odometry");
-  ignition::msgs::Odometry odometry_msg;
+  // gz::msgs::Odometry.
+  auto odometry_pub = node.Advertise<gz::msgs::Odometry>("odometry");
+  gz::msgs::Odometry odometry_msg;
   ros_ign_bridge::testing::createTestMsg(odometry_msg);
 
-  // ignition::msgs::Model.
-  auto joint_states_pub = node.Advertise<ignition::msgs::Model>("joint_states");
-  ignition::msgs::Model joint_states_msg;
+  // gz::msgs::Model.
+  auto joint_states_pub = node.Advertise<gz::msgs::Model>("joint_states");
+  gz::msgs::Model joint_states_msg;
   ros_ign_bridge::testing::createTestMsg(joint_states_msg);
 
-  // ignition::msgs::Twist.
-  auto twist_pub = node.Advertise<ignition::msgs::Twist>("twist");
-  ignition::msgs::Twist twist_msg;
+  // gz::msgs::Twist.
+  auto twist_pub = node.Advertise<gz::msgs::Twist>("twist");
+  gz::msgs::Twist twist_msg;
   ros_ign_bridge::testing::createTestMsg(twist_msg);
 
-  // ignition::msgs::PointCloudPacked.
-  auto pointcloudpacked_pub = node.Advertise<ignition::msgs::PointCloudPacked>(
+  // gz::msgs::PointCloudPacked.
+  auto pointcloudpacked_pub = node.Advertise<gz::msgs::PointCloudPacked>(
       "pointcloud2");
-  ignition::msgs::PointCloudPacked pointcloudpacked_msg;
+  gz::msgs::PointCloudPacked pointcloudpacked_msg;
   ros_ign_bridge::testing::createTestMsg(pointcloudpacked_msg);
 
-  // ignition::msgs::BatteryState.
-  auto battery_state_pub = node.Advertise<ignition::msgs::BatteryState>("battery_state");
-  ignition::msgs::BatteryState battery_state_msg;
+  // gz::msgs::BatteryState.
+  auto battery_state_pub = node.Advertise<gz::msgs::BatteryState>("battery_state");
+  gz::msgs::BatteryState battery_state_msg;
   ros_ign_bridge::testing::createTestMsg(battery_state_msg);
 
-  auto marker_pub = node.Advertise<ignition::msgs::Marker>("marker");
-  ignition::msgs::Marker marker_msg;
+  auto marker_pub = node.Advertise<gz::msgs::Marker>("marker");
+  gz::msgs::Marker marker_msg;
   ros_ign_bridge::testing::createTestMsg(marker_msg);
 
-  auto marker_array_pub = node.Advertise<ignition::msgs::Marker_V>("marker_array");
-  ignition::msgs::Marker_V marker_array_msg;
+  auto marker_array_pub = node.Advertise<gz::msgs::Marker_V>("marker_array");
+  gz::msgs::Marker_V marker_array_msg;
   ros_ign_bridge::testing::createTestMsg(marker_array_msg);
 
   // Publish messages at 1Hz.

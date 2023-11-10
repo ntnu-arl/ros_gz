@@ -60,7 +60,7 @@ int main(int _argc, char **_argv)
   std::string service{"/world/" + FLAGS_world + "/create"};
 
   // Request message
-  ignition::msgs::EntityFactory req;
+  gz::msgs::EntityFactory req;
 
   // File
   if (!FLAGS_file.empty())
@@ -93,7 +93,7 @@ int main(int _argc, char **_argv)
   }
 
   // Pose
-  ignition::math::Pose3d pose
+  gz::math::Pose3d pose
   {
     FLAGS_x,
     FLAGS_y,
@@ -102,7 +102,7 @@ int main(int _argc, char **_argv)
     FLAGS_P,
     FLAGS_Y
   };
-  ignition::msgs::Set(req.mutable_pose(), pose);
+  gz::msgs::Set(req.mutable_pose(), pose);
 
   // Name
   if (!FLAGS_name.empty())
@@ -116,8 +116,8 @@ int main(int _argc, char **_argv)
   }
 
   // Request
-  ignition::transport::Node node;
-  ignition::msgs::Boolean rep;
+  gz::transport::Node node;
+  gz::msgs::Boolean rep;
   bool result;
   unsigned int timeout = 5000;
   bool executed = node.Request(service, req, timeout, rep, result);

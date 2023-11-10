@@ -38,9 +38,9 @@ public:
     size_t queue_size) = 0;
 
   virtual
-  ignition::transport::Node::Publisher
+  gz::transport::Node::Publisher
   create_ign_publisher(
-    std::shared_ptr<ignition::transport::Node> ign_node,
+    std::shared_ptr<gz::transport::Node> ign_node,
     const std::string & topic_name,
     size_t queue_size) = 0;
 
@@ -50,12 +50,12 @@ public:
     ros::NodeHandle node,
     const std::string & topic_name,
     size_t queue_size,
-    ignition::transport::Node::Publisher & ign_pub) = 0;
+    gz::transport::Node::Publisher & ign_pub) = 0;
 
   virtual
   void
   create_ign_subscriber(
-    std::shared_ptr<ignition::transport::Node> node,
+    std::shared_ptr<gz::transport::Node> node,
     const std::string & topic_name,
     size_t queue_size,
     ros::Publisher ros_pub) = 0;

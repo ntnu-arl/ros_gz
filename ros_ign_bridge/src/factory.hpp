@@ -50,9 +50,9 @@ public:
     return node.advertise<ROS_T>(topic_name, queue_size);
   }
 
-  ignition::transport::Node::Publisher
+  gz::transport::Node::Publisher
   create_ign_publisher(
-    std::shared_ptr<ignition::transport::Node> ign_node,
+    std::shared_ptr<gz::transport::Node> ign_node,
     const std::string & topic_name,
     size_t /*queue_size*/)
   {
@@ -64,7 +64,7 @@ public:
     ros::NodeHandle node,
     const std::string & topic_name,
     size_t queue_size,
-    ignition::transport::Node::Publisher & ign_pub)
+    gz::transport::Node::Publisher & ign_pub)
   {
     // workaround for https://github.com/ros/roscpp_core/issues/22 to get the
     // connection header
@@ -84,16 +84,16 @@ public:
 
   void
   create_ign_subscriber(
-    std::shared_ptr<ignition::transport::Node> node,
+    std::shared_ptr<gz::transport::Node> node,
     const std::string & topic_name,
     size_t /*queue_size*/,
     ros::Publisher ros_pub)
   {
 
     std::function<void(const IGN_T&,
-                       const ignition::transport::MessageInfo &)> subCb =
+                       const gz::transport::MessageInfo &)> subCb =
     [this, ros_pub](const IGN_T &_msg,
-                     const ignition::transport::MessageInfo &_info)
+                     const gz::transport::MessageInfo &_info)
     {
       // Ignore messages that are published from this bridge.
       if (!_info.IntraProcess())
@@ -108,7 +108,7 @@ protected:
   static
   void ros_callback(
     const ros::MessageEvent<ROS_T const> & ros_msg_event,
-    ignition::transport::Node::Publisher & ign_pub,
+    gz::transport::Node::Publisher & ign_pub,
     const std::string &ros_type_name,
     const std::string &ign_type_name)
   {

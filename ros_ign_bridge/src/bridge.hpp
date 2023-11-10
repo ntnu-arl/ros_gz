@@ -33,12 +33,12 @@ namespace ros_ign_bridge
 struct BridgeRosToIgnHandles
 {
   ros::Subscriber ros_subscriber;
-  ignition::transport::Node::Publisher ign_publisher;
+  gz::transport::Node::Publisher ign_publisher;
 };
 
 struct BridgeIgnToRosHandles
 {
-  std::shared_ptr<ignition::transport::Node> ign_subscriber;
+  std::shared_ptr<gz::transport::Node> ign_subscriber;
   ros::Publisher ros_publisher;
 };
 
@@ -51,7 +51,7 @@ struct BridgeHandles
 BridgeRosToIgnHandles
 create_bridge_from_ros_to_ign(
   ros::NodeHandle ros_node,
-  std::shared_ptr<ignition::transport::Node> ign_node,
+  std::shared_ptr<gz::transport::Node> ign_node,
   const std::string & ros_type_name,
   const std::string & ros_topic_name,
   size_t subscriber_queue_size,
@@ -74,7 +74,7 @@ create_bridge_from_ros_to_ign(
 
 BridgeIgnToRosHandles
 create_bridge_from_ign_to_ros(
-  std::shared_ptr<ignition::transport::Node> ign_node,
+  std::shared_ptr<gz::transport::Node> ign_node,
   ros::NodeHandle ros_node,
   const std::string & ign_type_name,
   const std::string & ign_topic_name,
@@ -99,7 +99,7 @@ create_bridge_from_ign_to_ros(
 BridgeHandles
 create_bidirectional_bridge(
   ros::NodeHandle ros_node,
-  std::shared_ptr<ignition::transport::Node> ign_node,
+  std::shared_ptr<gz::transport::Node> ign_node,
   const std::string & ros_type_name,
   const std::string & ign_type_name,
   const std::string & topic_name,

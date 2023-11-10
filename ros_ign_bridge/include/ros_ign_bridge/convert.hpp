@@ -52,7 +52,7 @@
 #include <visualization_msgs/MarkerArray.h>
 
 // include Ignition messages
-#include <ignition/msgs.hh>
+#include <gz/msgs.hh>
 
 #include "ros_ign_bridge/convert_decl.hpp"
 
@@ -64,230 +64,230 @@ template<>
 void
 convert_ros_to_ign(
   const std_msgs::Bool & ros_msg,
-  ignition::msgs::Boolean & ign_msg);
+  gz::msgs::Boolean & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Boolean & ign_msg,
+  const gz::msgs::Boolean & ign_msg,
   std_msgs::Bool & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const std_msgs::ColorRGBA & ros_msg,
-  ignition::msgs::Color & ign_msg);
+  gz::msgs::Color & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Color & ign_msg,
+  const gz::msgs::Color & ign_msg,
   std_msgs::ColorRGBA & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const std_msgs::Empty & ros_msg,
-  ignition::msgs::Empty & ign_msg);
+  gz::msgs::Empty & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Empty & ign_msg,
+  const gz::msgs::Empty & ign_msg,
   std_msgs::Empty & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const std_msgs::Int32 & ros_msg,
-  ignition::msgs::Int32 & ign_msg);
+  gz::msgs::Int32 & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Int32 & ign_msg,
+  const gz::msgs::Int32 & ign_msg,
   std_msgs::Int32 & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const std_msgs::Float32 & ros_msg,
-  ignition::msgs::Float & ign_msg);
+  gz::msgs::Float & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Float & ign_msg,
+  const gz::msgs::Float & ign_msg,
   std_msgs::Float32 & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const std_msgs::Float64 & ros_msg,
-  ignition::msgs::Double & ign_msg);
+  gz::msgs::Double & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Double & ign_msg,
+  const gz::msgs::Double & ign_msg,
   std_msgs::Float64 & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const std_msgs::Header & ros_msg,
-  ignition::msgs::Header & ign_msg);
+  gz::msgs::Header & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Header & ign_msg,
+  const gz::msgs::Header & ign_msg,
   std_msgs::Header & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const std_msgs::String & ros_msg,
-  ignition::msgs::StringMsg & ign_msg);
+  gz::msgs::StringMsg & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::StringMsg & ign_msg,
+  const gz::msgs::StringMsg & ign_msg,
   std_msgs::String & ros_msg);
 
 // rosgraph_msgs
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Clock & ign_msg,
+  const gz::msgs::Clock & ign_msg,
   rosgraph_msgs::Clock & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const rosgraph_msgs::Clock & ros_msg,
-  ignition::msgs::Clock & ign_msg);
+  gz::msgs::Clock & ign_msg);
 
 // geometry_msgs
 template<>
 void
 convert_ros_to_ign(
   const geometry_msgs::Quaternion & ros_msg,
-  ignition::msgs::Quaternion & ign_msg);
+  gz::msgs::Quaternion & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Quaternion & ign_msg,
+  const gz::msgs::Quaternion & ign_msg,
   geometry_msgs::Quaternion & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const geometry_msgs::Vector3 & ros_msg,
-  ignition::msgs::Vector3d & ign_msg);
+  gz::msgs::Vector3d & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Vector3d & ign_msg,
+  const gz::msgs::Vector3d & ign_msg,
   geometry_msgs::Vector3 & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const geometry_msgs::Point & ros_msg,
-  ignition::msgs::Vector3d & ign_msg);
+  gz::msgs::Vector3d & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Vector3d & ign_msg,
+  const gz::msgs::Vector3d & ign_msg,
   geometry_msgs::Point & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const geometry_msgs::Pose & ros_msg,
-  ignition::msgs::Pose & ign_msg);
+  gz::msgs::Pose & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Pose & ign_msg,
+  const gz::msgs::Pose & ign_msg,
   geometry_msgs::Pose & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const geometry_msgs::PoseArray & ros_msg,
-  ignition::msgs::Pose_V & ign_msg);
+  gz::msgs::Pose_V & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Pose_V & ign_msg,
+  const gz::msgs::Pose_V & ign_msg,
   geometry_msgs::PoseArray & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const geometry_msgs::PoseStamped & ros_msg,
-  ignition::msgs::Pose & ign_msg);
+  gz::msgs::Pose & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Pose & ign_msg,
+  const gz::msgs::Pose & ign_msg,
   geometry_msgs::PoseStamped & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const geometry_msgs::Transform & ros_msg,
-  ignition::msgs::Pose & ign_msg);
+  gz::msgs::Pose & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Pose & ign_msg,
+  const gz::msgs::Pose & ign_msg,
   geometry_msgs::Transform & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const geometry_msgs::TransformStamped & ros_msg,
-  ignition::msgs::Pose & ign_msg);
+  gz::msgs::Pose & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Pose & ign_msg,
+  const gz::msgs::Pose & ign_msg,
   geometry_msgs::TransformStamped & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const tf2_msgs::TFMessage & ros_msg,
-  ignition::msgs::Pose_V & ign_msg);
+  gz::msgs::Pose_V & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Pose_V & ign_msg,
+  const gz::msgs::Pose_V & ign_msg,
   tf2_msgs::TFMessage & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const geometry_msgs::Twist & ros_msg,
-  ignition::msgs::Twist & ign_msg);
+  gz::msgs::Twist & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Twist & ign_msg,
+  const gz::msgs::Twist & ign_msg,
   geometry_msgs::Twist & ros_msg);
 
 // mav_msgs
@@ -308,24 +308,24 @@ template<>
 void
 convert_ros_to_ign(
   const nav_msgs::OccupancyGrid & ros_msg,
-  ignition::msgs::OccupancyGrid & ign_msg);
+  gz::msgs::OccupancyGrid & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::OccupancyGrid& ign_msg,
+  const gz::msgs::OccupancyGrid& ign_msg,
   nav_msgs::OccupancyGrid & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const nav_msgs::Odometry & ros_msg,
-  ignition::msgs::Odometry & ign_msg);
+  gz::msgs::Odometry & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Odometry & ign_msg,
+  const gz::msgs::Odometry & ign_msg,
   nav_msgs::Odometry & ros_msg);
 
 // sensor_msgs
@@ -333,144 +333,144 @@ template<>
 void
 convert_ros_to_ign(
   const sensor_msgs::FluidPressure & ros_msg,
-  ignition::msgs::FluidPressure & ign_msg);
+  gz::msgs::FluidPressure & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::FluidPressure & ign_msg,
+  const gz::msgs::FluidPressure & ign_msg,
   sensor_msgs::FluidPressure & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const sensor_msgs::Image & ros_msg,
-  ignition::msgs::Image & ign_msg);
+  gz::msgs::Image & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Image & ign_msg,
+  const gz::msgs::Image & ign_msg,
   sensor_msgs::Image & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const sensor_msgs::CameraInfo & ros_msg,
-  ignition::msgs::CameraInfo & ign_msg);
+  gz::msgs::CameraInfo & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::CameraInfo & ign_msg,
+  const gz::msgs::CameraInfo & ign_msg,
   sensor_msgs::CameraInfo & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const sensor_msgs::Imu & ros_msg,
-  ignition::msgs::IMU & ign_msg);
+  gz::msgs::IMU & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::IMU & ign_msg,
+  const gz::msgs::IMU & ign_msg,
   sensor_msgs::Imu & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const sensor_msgs::JointState & ros_msg,
-  ignition::msgs::Model & ign_msg);
+  gz::msgs::Model & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Model & ign_msg,
+  const gz::msgs::Model & ign_msg,
   sensor_msgs::JointState & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const sensor_msgs::LaserScan & ros_msg,
-  ignition::msgs::LaserScan & ign_msg);
+  gz::msgs::LaserScan & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::LaserScan & ign_msg,
+  const gz::msgs::LaserScan & ign_msg,
   sensor_msgs::LaserScan & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const sensor_msgs::MagneticField & ros_msg,
-  ignition::msgs::Magnetometer & ign_msg);
+  gz::msgs::Magnetometer & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Magnetometer & ign_msg,
+  const gz::msgs::Magnetometer & ign_msg,
   sensor_msgs::MagneticField & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const sensor_msgs::NavSatFix & ros_msg,
-  ignition::msgs::NavSat & ign_msg);
+  gz::msgs::NavSat & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::NavSat & ign_msg,
+  const gz::msgs::NavSat & ign_msg,
   sensor_msgs::NavSatFix & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const sensor_msgs::PointCloud2 & ros_msg,
-  ignition::msgs::PointCloudPacked & ign_msg);
+  gz::msgs::PointCloudPacked & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::PointCloudPacked & ign_msg,
+  const gz::msgs::PointCloudPacked & ign_msg,
   sensor_msgs::PointCloud2 & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const sensor_msgs::BatteryState & ros_msg,
-  ignition::msgs::BatteryState & ign_msg);
+  gz::msgs::BatteryState & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::BatteryState & ign_msg,
+  const gz::msgs::BatteryState & ign_msg,
   sensor_msgs::BatteryState & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const visualization_msgs::Marker & ros_msg,
-  ignition::msgs::Marker & ign_msg);
+  gz::msgs::Marker & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Marker & ign_msg,
+  const gz::msgs::Marker & ign_msg,
   visualization_msgs::Marker & ros_msg);
 
 template<>
 void
 convert_ros_to_ign(
   const visualization_msgs::MarkerArray & ros_msg,
-  ignition::msgs::Marker_V & ign_msg);
+  gz::msgs::Marker_V & ign_msg);
 
 template<>
 void
 convert_ign_to_ros(
-  const ignition::msgs::Marker_V & ign_msg,
+  const gz::msgs::Marker_V & ign_msg,
   visualization_msgs::MarkerArray & ros_msg);
 
 }  // namespace ros_ign_bridge

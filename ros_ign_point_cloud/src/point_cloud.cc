@@ -35,7 +35,7 @@
 
 IGNITION_ADD_PLUGIN(
     ros_ign_point_cloud::PointCloud,
-    ignition::gazebo::System,
+    gz::gazebo::System,
     ros_ign_point_cloud::PointCloud::ISystemConfigure,
     ros_ign_point_cloud::PointCloud::ISystemPostUpdate)
 
@@ -70,42 +70,42 @@ class ros_ign_point_cloud::PointCloudPrivate
 
   /// \brief Get depth camera from rendering.
   /// \param[in] _ecm Immutable reference to ECM.
-  public: void LoadDepthCamera(const ignition::gazebo::EntityComponentManager &_ecm);
+  public: void LoadDepthCamera(const gz::gazebo::EntityComponentManager &_ecm);
 
   /// \brief Get RGB camera from rendering.
   /// \param[in] _ecm Immutable reference to ECM.
-  public: void LoadRgbCamera(const ignition::gazebo::EntityComponentManager &_ecm);
+  public: void LoadRgbCamera(const gz::gazebo::EntityComponentManager &_ecm);
 
   /// \brief Get GPU rays from rendering.
   /// \param[in] _ecm Immutable reference to ECM.
-  public: void LoadGpuRays(const ignition::gazebo::EntityComponentManager &_ecm);
+  public: void LoadGpuRays(const gz::gazebo::EntityComponentManager &_ecm);
 
   /// \brief Rendering scene which manages the cameras.
-  public: ignition::rendering::ScenePtr scene_;
+  public: gz::rendering::ScenePtr scene_;
 
   /// \brief Entity ID for sensor within Gazebo.
-  public: ignition::gazebo::Entity entity_;
+  public: gz::gazebo::Entity entity_;
 
   /// \brief Rendering depth camera
-  public: std::shared_ptr<ignition::rendering::DepthCamera> depth_camera_;
+  public: std::shared_ptr<gz::rendering::DepthCamera> depth_camera_;
 
   /// \brief Rendering RGB camera
-  public: std::shared_ptr<ignition::rendering::Camera> rgb_camera_;
+  public: std::shared_ptr<gz::rendering::Camera> rgb_camera_;
 
   /// \brief Rendering GPU lidar
-  public: std::shared_ptr<ignition::rendering::GpuRays> gpu_rays_;
+  public: std::shared_ptr<gz::rendering::GpuRays> gpu_rays_;
 
   /// \brief Keep latest image from RGB camera.
-  public: ignition::rendering::Image rgb_image_;
+  public: gz::rendering::Image rgb_image_;
 
   /// \brief Message populated with latest image from RGB camera.
   public: sensor_msgs::Image rgb_image_msg_;
 
   /// \brief Connection to depth frame event.
-  public: ignition::common::ConnectionPtr depth_connection_;
+  public: gz::common::ConnectionPtr depth_connection_;
 
   /// \brief Connection to GPU rays frame event.
-  public: ignition::common::ConnectionPtr gpu_rays_connection_;
+  public: gz::common::ConnectionPtr gpu_rays_connection_;
 
   /// \brief Node to publish ROS messages.
   public: std::unique_ptr<ros::NodeHandle> rosnode_;
@@ -135,22 +135,22 @@ PointCloud::PointCloud() : dataPtr(std::make_unique<PointCloudPrivate>())
 }
 
 //////////////////////////////////////////////////
-void PointCloud::Configure(const ignition::gazebo::Entity &_entity,
+void PointCloud::Configure(const gz::gazebo::Entity &_entity,
     const std::shared_ptr<const sdf::Element> &_sdf,
-    ignition::gazebo::EntityComponentManager &_ecm,
-    ignition::gazebo::EventManager &)
+    gz::gazebo::EntityComponentManager &_ecm,
+    gz::gazebo::EventManager &)
 {
   this->dataPtr->entity_ = _entity;
 
-  if (_ecm.Component<ignition::gazebo::components::RgbdCamera>(_entity) != nullptr)
+  if (_ecm.Component<gz::gazebo::components::RgbdCamera>(_entity) != nullptr)
   {
     this->dataPtr->type_ = SensorType::RGBD_CAMERA;
   }
-  else if (_ecm.Component<ignition::gazebo::components::DepthCamera>(_entity) != nullptr)
+  else if (_ecm.Component<gz::gazebo::components::DepthCamera>(_entity) != nullptr)
   {
     this->dataPtr->type_ = SensorType::DEPTH_CAMERA;
   }
-  else if (_ecm.Component<ignition::gazebo::components::GpuLidar>(_entity) != nullptr)
+  else if (_ecm.Component<gz::gazebo::components::GpuLidar>(_entity) != nullptr)
   {
     this->dataPtr->type_ = SensorType::GPU_LIDAR;
   }
@@ -166,12 +166,12 @@ void PointCloud::Configure(const ignition::gazebo::Entity &_entity,
   {
     int argc = 0;
     char** argv = NULL;
-    ros::init(argc, argv, "ignition", ros::init_options::NoSigintHandler);
+    ros::init(argc, argv, "gz", ros::init_options::NoSigintHandler);
     ROS_INFO_NAMED("ros_ign_point_cloud", "Initialized ROS");
   }
 
   // Sensor scoped name
-  auto scoped_name = ignition::gazebo::scopedName(this->dataPtr->entity_, _ecm, "/", false);
+  auto scoped_name = gz::gazebo::scopedName(this->dataPtr->entity_, _ecm, "/", false);
 
   // ROS node
   auto ns = _sdf->Get<std::string>("namespace", scoped_name).first;
@@ -190,15 +190,15 @@ void PointCloud::Configure(const ignition::gazebo::Entity &_entity,
 }
 
 //////////////////////////////////////////////////
-void PointCloud::PostUpdate(const ignition::gazebo::UpdateInfo &_info,
-    const ignition::gazebo::EntityComponentManager &_ecm)
+void PointCloud::PostUpdate(const gz::gazebo::UpdateInfo &_info,
+    const gz::gazebo::EntityComponentManager &_ecm)
 {
   this->dataPtr->current_time_ = _info.simTime;
 
   // Find engine / scene
   if (!this->dataPtr->scene_)
   {
-    auto engine = ignition::rendering::engine(this->dataPtr->engine_name_);
+    auto engine = gz::rendering::engine(this->dataPtr->engine_name_);
     if (!engine)
       return;
 
@@ -228,11 +228,11 @@ void PointCloud::PostUpdate(const ignition::gazebo::UpdateInfo &_info,
 
 //////////////////////////////////////////////////
 void PointCloudPrivate::LoadDepthCamera(
-    const ignition::gazebo::EntityComponentManager &_ecm)
+    const gz::gazebo::EntityComponentManager &_ecm)
 {
   // Sensor name scoped from the model
   auto sensor_name =
-      ignition::gazebo::scopedName(this->entity_, _ecm, "::", false);
+      gz::gazebo::scopedName(this->entity_, _ecm, "::", false);
   sensor_name = sensor_name.substr(sensor_name.find("::") + 2);
 
   // Get sensor
@@ -247,7 +247,7 @@ void PointCloudPrivate::LoadDepthCamera(
   }
 
   this->depth_camera_ =
-    std::dynamic_pointer_cast<ignition::rendering::DepthCamera>(sensor);
+    std::dynamic_pointer_cast<gz::rendering::DepthCamera>(sensor);
   if (!this->depth_camera_)
   {
     ROS_ERROR_NAMED("ros_ign_point_cloud",
@@ -263,11 +263,11 @@ void PointCloudPrivate::LoadDepthCamera(
 
 //////////////////////////////////////////////////
 void PointCloudPrivate::LoadRgbCamera(
-    const ignition::gazebo::EntityComponentManager &_ecm)
+    const gz::gazebo::EntityComponentManager &_ecm)
 {
   // Sensor name scoped from the model
   auto sensor_name =
-      ignition::gazebo::scopedName(this->entity_, _ecm, "::", false);
+      gz::gazebo::scopedName(this->entity_, _ecm, "::", false);
   sensor_name = sensor_name.substr(sensor_name.find("::") + 2);
 
   // Get sensor
@@ -277,7 +277,7 @@ void PointCloudPrivate::LoadRgbCamera(
     return;
   }
 
-  this->rgb_camera_ = std::dynamic_pointer_cast<ignition::rendering::Camera>(sensor);
+  this->rgb_camera_ = std::dynamic_pointer_cast<gz::rendering::Camera>(sensor);
   if (!this->rgb_camera_)
   {
     ROS_ERROR_NAMED("ros_ign_point_cloud",
@@ -290,11 +290,11 @@ void PointCloudPrivate::LoadRgbCamera(
 
 //////////////////////////////////////////////////
 void PointCloudPrivate::LoadGpuRays(
-    const ignition::gazebo::EntityComponentManager &_ecm)
+    const gz::gazebo::EntityComponentManager &_ecm)
 {
   // Sensor name scoped from the model
   auto sensor_name =
-      ignition::gazebo::scopedName(this->entity_, _ecm, "::", false);
+      gz::gazebo::scopedName(this->entity_, _ecm, "::", false);
   sensor_name = sensor_name.substr(sensor_name.find("::") + 2);
 
   // Get sensor
@@ -305,7 +305,7 @@ void PointCloudPrivate::LoadGpuRays(
   }
 
   this->gpu_rays_ =
-    std::dynamic_pointer_cast<ignition::rendering::GpuRays>(sensor);
+    std::dynamic_pointer_cast<gz::rendering::GpuRays>(sensor);
   if (!this->gpu_rays_)
   {
     ROS_ERROR_NAMED("ros_ign_point_cloud",
@@ -354,7 +354,7 @@ void PointCloudPrivate::OnNewDepthFrame(const float *_scan,
   // Fill message
   // Logic borrowed from
   // https://github.com/ros-simulation/gazebo_ros_pkgs/blob/kinetic-devel/gazebo_plugins/src/gazebo_ros_depth_camera.cpp
-  auto sec_nsec = ignition::math::durationToSecNsec(this->current_time_);
+  auto sec_nsec = gz::math::durationToSecNsec(this->current_time_);
 
   sensor_msgs::PointCloud2 msg;
   msg.header.frame_id = this->frame_id_;
@@ -449,12 +449,12 @@ void PointCloudPrivate::OnNewDepthFrame(const float *_scan,
         // Clamp according to REP 117
         if (depth > this->depth_camera_->FarClipPlane())
         {
-          *iter_z = ignition::math::INF_D;
+          *iter_z = gz::math::INF_D;
           msg.is_dense = false;
         }
         if (depth < this->depth_camera_->NearClipPlane())
         {
-          *iter_z = -ignition::math::INF_D;
+          *iter_z = -gz::math::INF_D;
           msg.is_dense = false;
         }
       }

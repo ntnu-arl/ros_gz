@@ -44,13 +44,13 @@ class MyTestClass
   public: bool callbackExecuted = false;
 
   /// \brief Transport node;
-  private: ignition::transport::Node node;
+  private: gz::transport::Node node;
 };
 
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Boolean)
 {
-  MyTestClass<ignition::msgs::Boolean> client("bool");
+  MyTestClass<gz::msgs::Boolean> client("bool");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -62,7 +62,7 @@ TEST(IgnSubscriberTest, Boolean)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Color)
 {
-  MyTestClass<ignition::msgs::Color> client("color");
+  MyTestClass<gz::msgs::Color> client("color");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -74,7 +74,7 @@ TEST(IgnSubscriberTest, Color)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Empty)
 {
-  MyTestClass<ignition::msgs::Empty> client("empty");
+  MyTestClass<gz::msgs::Empty> client("empty");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -86,7 +86,7 @@ TEST(IgnSubscriberTest, Empty)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Int32)
 {
-  MyTestClass<ignition::msgs::Int32> client("int32");
+  MyTestClass<gz::msgs::Int32> client("int32");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -98,7 +98,7 @@ TEST(IgnSubscriberTest, Int32)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Float)
 {
-  MyTestClass<ignition::msgs::Float> client("float");
+  MyTestClass<gz::msgs::Float> client("float");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -110,7 +110,7 @@ TEST(IgnSubscriberTest, Float)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Header)
 {
-  MyTestClass<ignition::msgs::Header> client("header");
+  MyTestClass<gz::msgs::Header> client("header");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -122,7 +122,7 @@ TEST(IgnSubscriberTest, Header)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, String)
 {
-  MyTestClass<ignition::msgs::StringMsg> client("string");
+  MyTestClass<gz::msgs::StringMsg> client("string");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -134,7 +134,7 @@ TEST(IgnSubscriberTest, String)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Quaternion)
 {
-  MyTestClass<ignition::msgs::Quaternion> client("quaternion");
+  MyTestClass<gz::msgs::Quaternion> client("quaternion");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -146,7 +146,7 @@ TEST(IgnSubscriberTest, Quaternion)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Vector3)
 {
-  MyTestClass<ignition::msgs::Vector3d> client("vector3");
+  MyTestClass<gz::msgs::Vector3d> client("vector3");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -158,7 +158,7 @@ TEST(IgnSubscriberTest, Vector3)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Clock)
 {
-  MyTestClass<ignition::msgs::Clock> client("clock");
+  MyTestClass<gz::msgs::Clock> client("clock");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -170,7 +170,7 @@ TEST(IgnSubscriberTest, Clock)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Point)
 {
-  MyTestClass<ignition::msgs::Vector3d> client("point");
+  MyTestClass<gz::msgs::Vector3d> client("point");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -182,7 +182,7 @@ TEST(IgnSubscriberTest, Point)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Pose)
 {
-  MyTestClass<ignition::msgs::Pose> client("pose");
+  MyTestClass<gz::msgs::Pose> client("pose");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -194,7 +194,7 @@ TEST(IgnSubscriberTest, Pose)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Pose_V)
 {
-  MyTestClass<ignition::msgs::Pose_V> client("pose_array");
+  MyTestClass<gz::msgs::Pose_V> client("pose_array");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -206,7 +206,7 @@ TEST(IgnSubscriberTest, Pose_V)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, PoseStamped)
 {
-  MyTestClass<ignition::msgs::Pose> client("pose_stamped");
+  MyTestClass<gz::msgs::Pose> client("pose_stamped");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -218,7 +218,7 @@ TEST(IgnSubscriberTest, PoseStamped)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Transform)
 {
-  MyTestClass<ignition::msgs::Pose> client("transform");
+  MyTestClass<gz::msgs::Pose> client("transform");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -230,7 +230,7 @@ TEST(IgnSubscriberTest, Transform)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, TransformStamped)
 {
-  MyTestClass<ignition::msgs::Pose> client("transform_stamped");
+  MyTestClass<gz::msgs::Pose> client("transform_stamped");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -242,7 +242,7 @@ TEST(IgnSubscriberTest, TransformStamped)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, TF2Message)
 {
-  MyTestClass<ignition::msgs::Pose_V> client("tf2_message");
+  MyTestClass<gz::msgs::Pose_V> client("tf2_message");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -254,7 +254,7 @@ TEST(IgnSubscriberTest, TF2Message)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Twist)
 {
-  MyTestClass<ignition::msgs::Twist> client("twist");
+  MyTestClass<gz::msgs::Twist> client("twist");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -266,7 +266,7 @@ TEST(IgnSubscriberTest, Twist)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Image)
 {
-  MyTestClass<ignition::msgs::Image> client("image");
+  MyTestClass<gz::msgs::Image> client("image");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -278,7 +278,7 @@ TEST(IgnSubscriberTest, Image)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, CameraInfo)
 {
-  MyTestClass<ignition::msgs::CameraInfo> client("camera_info");
+  MyTestClass<gz::msgs::CameraInfo> client("camera_info");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -290,7 +290,7 @@ TEST(IgnSubscriberTest, CameraInfo)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, FluidPressure)
 {
-  MyTestClass<ignition::msgs::FluidPressure> client("fluid_pressure");
+  MyTestClass<gz::msgs::FluidPressure> client("fluid_pressure");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -302,7 +302,7 @@ TEST(IgnSubscriberTest, FluidPressure)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Imu)
 {
-  MyTestClass<ignition::msgs::IMU> client("imu");
+  MyTestClass<gz::msgs::IMU> client("imu");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -314,7 +314,7 @@ TEST(IgnSubscriberTest, Imu)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, LaserScan)
 {
-  MyTestClass<ignition::msgs::LaserScan> client("laserscan");
+  MyTestClass<gz::msgs::LaserScan> client("laserscan");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -326,7 +326,7 @@ TEST(IgnSubscriberTest, LaserScan)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Magnetometer)
 {
-  MyTestClass<ignition::msgs::Magnetometer> client("magnetic");
+  MyTestClass<gz::msgs::Magnetometer> client("magnetic");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -338,7 +338,7 @@ TEST(IgnSubscriberTest, Magnetometer)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, NavSat)
 {
-  MyTestClass<ignition::msgs::NavSat> client("navsat");
+  MyTestClass<gz::msgs::NavSat> client("navsat");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -350,7 +350,7 @@ TEST(IgnSubscriberTest, NavSat)
 /////////////////////////////////////////////////
 //TEST(IgnSubscriberTest, Actuators)
 //{
-//  MyTestClass<ignition::msgs::Actuators> client("actuators");
+//  MyTestClass<gz::msgs::Actuators> client("actuators");
 //
 //  using namespace std::chrono_literals;
 //  ros_ign_bridge::testing::waitUntilBoolVar(
@@ -362,7 +362,7 @@ TEST(IgnSubscriberTest, NavSat)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, OccupancyGrid)
 {
-  MyTestClass<ignition::msgs::OccupancyGrid> client("map");
+  MyTestClass<gz::msgs::OccupancyGrid> client("map");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -374,7 +374,7 @@ TEST(IgnSubscriberTest, OccupancyGrid)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Odometry)
 {
-  MyTestClass<ignition::msgs::Odometry> client("odometry");
+  MyTestClass<gz::msgs::Odometry> client("odometry");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -386,7 +386,7 @@ TEST(IgnSubscriberTest, Odometry)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, JointStates)
 {
-  MyTestClass<ignition::msgs::Model> client("joint_states");
+  MyTestClass<gz::msgs::Model> client("joint_states");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -398,7 +398,7 @@ TEST(IgnSubscriberTest, JointStates)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, PointCloudPacked)
 {
-  MyTestClass<ignition::msgs::PointCloudPacked> client("pointcloud2");
+  MyTestClass<gz::msgs::PointCloudPacked> client("pointcloud2");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -410,7 +410,7 @@ TEST(IgnSubscriberTest, PointCloudPacked)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, BatteryState)
 {
-  MyTestClass<ignition::msgs::BatteryState> client("battery_state");
+  MyTestClass<gz::msgs::BatteryState> client("battery_state");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -422,7 +422,7 @@ TEST(IgnSubscriberTest, BatteryState)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, Marker)
 {
-  MyTestClass<ignition::msgs::Marker> client("marker");
+  MyTestClass<gz::msgs::Marker> client("marker");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(
@@ -434,7 +434,7 @@ TEST(IgnSubscriberTest, Marker)
 /////////////////////////////////////////////////
 TEST(IgnSubscriberTest, MarkerArray)
 {
-  MyTestClass<ignition::msgs::Marker_V> client("marker_array");
+  MyTestClass<gz::msgs::Marker_V> client("marker_array");
 
   using namespace std::chrono_literals;
   ros_ign_bridge::testing::waitUntilBoolVar(

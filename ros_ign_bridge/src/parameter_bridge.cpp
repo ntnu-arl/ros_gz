@@ -60,13 +60,13 @@ void usage()
       << "Following the direction symbol is the Ignition Transport message "
       << "type.\n\n"
       << "A bidirectional bridge example:\n"
-      << "    parameter_bridge /chatter@std_msgs/String@ignition.msgs"
+      << "    parameter_bridge /chatter@std_msgs/String@gz.msgs"
       << ".StringMsg\n\n"
       << "A bridge from Ignition to ROS example:\n"
-      << "    parameter_bridge /chatter@std_msgs/String[ignition.msgs"
+      << "    parameter_bridge /chatter@std_msgs/String[gz.msgs"
       << ".StringMsg\n\n"
       << "A bridge from ROS to Ignition example:\n"
-      << "    parameter_bridge /chatter@std_msgs/String]ignition.msgs"
+      << "    parameter_bridge /chatter@std_msgs/String]gz.msgs"
       << ".StringMsg" << std::endl);
 }
 
@@ -84,7 +84,7 @@ int main(int argc, char * argv[])
   ros::NodeHandle ros_node;
 
   // Ignition node
-  auto ign_node = std::make_shared<ignition::transport::Node>();
+  auto ign_node = std::make_shared<gz::transport::Node>();
 
   std::list<ros_ign_bridge::BridgeHandles> bidirectional_handles;
   std::list<ros_ign_bridge::BridgeIgnToRosHandles> ign_to_ros_handles;
@@ -186,7 +186,7 @@ int main(int argc, char * argv[])
   async_spinner.start();
 
   // Zzzzzz.
-  ignition::transport::waitForShutdown();
+  gz::transport::waitForShutdown();
 
   return 0;
 }

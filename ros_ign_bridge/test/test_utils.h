@@ -1047,16 +1047,16 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Boolean &_msg)
+  void createTestMsg(gz::msgs::Boolean &_msg)
   {
     _msg.set_data(true);
   }
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Boolean &_msg)
+  void compareTestMsg(const gz::msgs::Boolean &_msg)
   {
-    ignition::msgs::Boolean expected_msg;
+    gz::msgs::Boolean expected_msg;
     createTestMsg(expected_msg);
 
     EXPECT_EQ(expected_msg.data(), _msg.data());
@@ -1064,7 +1064,7 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Color &_msg)
+  void createTestMsg(gz::msgs::Color &_msg)
   {
     _msg.set_r(10.0);
     _msg.set_g(11.0);
@@ -1074,9 +1074,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Color &_msg)
+  void compareTestMsg(const gz::msgs::Color &_msg)
   {
-    ignition::msgs::Color expected_msg;
+    gz::msgs::Color expected_msg;
     createTestMsg(expected_msg);
 
     EXPECT_EQ(expected_msg.r(), _msg.r());
@@ -1087,22 +1087,22 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing. Noop for Empty
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Empty &)
+  void compareTestMsg(const gz::msgs::Empty &)
   {
   }
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Int32 &_msg)
+  void createTestMsg(gz::msgs::Int32 &_msg)
   {
     _msg.set_data(5);
   }
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Int32 &_msg)
+  void compareTestMsg(const gz::msgs::Int32 &_msg)
   {
-    ignition::msgs::Int32 expected_msg;
+    gz::msgs::Int32 expected_msg;
     createTestMsg(expected_msg);
 
     EXPECT_EQ(expected_msg.data(), _msg.data());
@@ -1110,16 +1110,16 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Float &_msg)
+  void createTestMsg(gz::msgs::Float &_msg)
   {
     _msg.set_data(1.5);
   }
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Float &_msg)
+  void compareTestMsg(const gz::msgs::Float &_msg)
   {
-    ignition::msgs::Float expected_msg;
+    gz::msgs::Float expected_msg;
     createTestMsg(expected_msg);
 
     EXPECT_FLOAT_EQ(expected_msg.data(), _msg.data());
@@ -1127,16 +1127,16 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Double &_msg)
+  void createTestMsg(gz::msgs::Double &_msg)
   {
     _msg.set_data(1.5);
   }
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Double &_msg)
+  void compareTestMsg(const gz::msgs::Double &_msg)
   {
-    ignition::msgs::Double expected_msg;
+    gz::msgs::Double expected_msg;
     createTestMsg(expected_msg);
 
     EXPECT_DOUBLE_EQ(expected_msg.data(), _msg.data());
@@ -1144,7 +1144,7 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Header &_msg)
+  void createTestMsg(gz::msgs::Header &_msg)
   {
     auto seq_entry = _msg.add_data();
     seq_entry->set_key("seq");
@@ -1158,9 +1158,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Header &_msg)
+  void compareTestMsg(const gz::msgs::Header &_msg)
   {
-    ignition::msgs::Header expected_msg;
+    gz::msgs::Header expected_msg;
     createTestMsg(expected_msg);
 
     EXPECT_EQ(expected_msg.stamp().sec(),    _msg.stamp().sec());
@@ -1185,7 +1185,7 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Clock &_msg)
+  void createTestMsg(gz::msgs::Clock &_msg)
   {
     _msg.mutable_sim()->set_sec(1);
     _msg.mutable_sim()->set_nsec(2);
@@ -1193,9 +1193,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Clock &_msg)
+  void compareTestMsg(const gz::msgs::Clock &_msg)
   {
-    ignition::msgs::Clock expected_msg;
+    gz::msgs::Clock expected_msg;
     createTestMsg(expected_msg);
 
     EXPECT_EQ(expected_msg.sim().sec(),    _msg.sim().sec());
@@ -1204,16 +1204,16 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::StringMsg &_msg)
+  void createTestMsg(gz::msgs::StringMsg &_msg)
   {
     _msg.set_data("string");
   }
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::StringMsg &_msg)
+  void compareTestMsg(const gz::msgs::StringMsg &_msg)
   {
-    ignition::msgs::StringMsg expected_msg;
+    gz::msgs::StringMsg expected_msg;
     createTestMsg(expected_msg);
 
     EXPECT_EQ(expected_msg.data(), _msg.data());
@@ -1221,7 +1221,7 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Quaternion &_msg)
+  void createTestMsg(gz::msgs::Quaternion &_msg)
   {
     _msg.set_x(1.0);
     _msg.set_y(2.0);
@@ -1231,9 +1231,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Quaternion &_msg)
+  void compareTestMsg(const gz::msgs::Quaternion &_msg)
   {
-    ignition::msgs::Quaternion expected_msg;
+    gz::msgs::Quaternion expected_msg;
     createTestMsg(expected_msg);
 
     EXPECT_EQ(expected_msg.x(), _msg.x());
@@ -1244,7 +1244,7 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Vector3d &_msg)
+  void createTestMsg(gz::msgs::Vector3d &_msg)
   {
     _msg.set_x(1.0);
     _msg.set_y(2.0);
@@ -1253,9 +1253,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Vector3d &_msg)
+  void compareTestMsg(const gz::msgs::Vector3d &_msg)
   {
-    ignition::msgs::Vector3d expected_msg;
+    gz::msgs::Vector3d expected_msg;
     createTestMsg(expected_msg);
 
     EXPECT_EQ(expected_msg.x(), _msg.x());
@@ -1265,7 +1265,7 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Pose &_msg)
+  void createTestMsg(gz::msgs::Pose &_msg)
   {
     createTestMsg(*_msg.mutable_header());
     auto child_frame_id_entry = _msg.mutable_header()->add_data();
@@ -1278,13 +1278,13 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Pose &_msg)
+  void compareTestMsg(const gz::msgs::Pose &_msg)
   {
     if (_msg.header().data_size() > 0)
     {
       compareTestMsg(_msg.header());
 
-      ignition::msgs::Pose expected_msg;
+      gz::msgs::Pose expected_msg;
       createTestMsg(expected_msg);
 
       if (_msg.header().data_size() > 2)
@@ -1306,7 +1306,7 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Pose_V &_msg)
+  void createTestMsg(gz::msgs::Pose_V &_msg)
   {
     createTestMsg(*_msg.mutable_header());
     createTestMsg(*_msg.add_pose());
@@ -1314,9 +1314,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Pose_V &_msg)
+  void compareTestMsg(const gz::msgs::Pose_V &_msg)
   {
-    ignition::msgs::Pose_V expected_msg;
+    gz::msgs::Pose_V expected_msg;
     createTestMsg(expected_msg);
 
     compareTestMsg(_msg.header());
@@ -1325,11 +1325,11 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Twist &_msg)
+  void createTestMsg(gz::msgs::Twist &_msg)
   {
-    ignition::msgs::Header header_msg;
-    ignition::msgs::Vector3d linear_msg;
-    ignition::msgs::Vector3d angular_msg;
+    gz::msgs::Header header_msg;
+    gz::msgs::Vector3d linear_msg;
+    gz::msgs::Vector3d angular_msg;
 
     createTestMsg(header_msg);
     createTestMsg(linear_msg);
@@ -1342,7 +1342,7 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Twist &_msg)
+  void compareTestMsg(const gz::msgs::Twist &_msg)
   {
     compareTestMsg(_msg.linear());
     compareTestMsg(_msg.angular());
@@ -1350,24 +1350,24 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Image &_msg)
+  void createTestMsg(gz::msgs::Image &_msg)
   {
-    ignition::msgs::Header header_msg;
+    gz::msgs::Header header_msg;
     createTestMsg(header_msg);
 
     _msg.mutable_header()->CopyFrom(header_msg);
     _msg.set_width(320);
     _msg.set_height(240);
-    _msg.set_pixel_format_type(ignition::msgs::PixelFormatType::RGB_INT8);
+    _msg.set_pixel_format_type(gz::msgs::PixelFormatType::RGB_INT8);
     _msg.set_step(_msg.width() * 3);
     _msg.set_data(std::string(_msg.height() * _msg.step(), '1'));
   }
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Image &_msg)
+  void compareTestMsg(const gz::msgs::Image &_msg)
   {
-    ignition::msgs::Image expected_msg;
+    gz::msgs::Image expected_msg;
     createTestMsg(expected_msg);
 
     compareTestMsg(_msg.header());
@@ -1380,9 +1380,9 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::CameraInfo &_msg)
+  void createTestMsg(gz::msgs::CameraInfo &_msg)
   {
-    ignition::msgs::Header header_msg;
+    gz::msgs::Header header_msg;
     createTestMsg(header_msg);
 
     _msg.mutable_header()->CopyFrom(header_msg);
@@ -1390,7 +1390,7 @@ namespace testing
     _msg.set_height(240);
 
     auto distortion = _msg.mutable_distortion();
-    distortion->set_model(ignition::msgs::CameraInfo::Distortion::PLUMB_BOB);
+    distortion->set_model(gz::msgs::CameraInfo::Distortion::PLUMB_BOB);
     distortion->add_k(1);
     distortion->add_k(2);
     distortion->add_k(3);
@@ -1435,9 +1435,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::CameraInfo &_msg)
+  void compareTestMsg(const gz::msgs::CameraInfo &_msg)
   {
-    ignition::msgs::CameraInfo expected_msg;
+    gz::msgs::CameraInfo expected_msg;
     createTestMsg(expected_msg);
 
     ASSERT_TRUE(expected_msg.has_header());
@@ -1482,9 +1482,9 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::FluidPressure &_msg)
+  void createTestMsg(gz::msgs::FluidPressure &_msg)
   {
-    ignition::msgs::Header header_msg;
+    gz::msgs::Header header_msg;
     createTestMsg(header_msg);
 
     _msg.mutable_header()->CopyFrom(header_msg);
@@ -1494,9 +1494,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::FluidPressure &_msg)
+  void compareTestMsg(const gz::msgs::FluidPressure &_msg)
   {
-    ignition::msgs::FluidPressure expected_msg;
+    gz::msgs::FluidPressure expected_msg;
     createTestMsg(expected_msg);
 
     compareTestMsg(_msg.header());
@@ -1506,11 +1506,11 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::IMU &_msg)
+  void createTestMsg(gz::msgs::IMU &_msg)
   {
-    ignition::msgs::Header header_msg;
-    ignition::msgs::Quaternion quaternion_msg;
-    ignition::msgs::Vector3d vector3_msg;
+    gz::msgs::Header header_msg;
+    gz::msgs::Quaternion quaternion_msg;
+    gz::msgs::Vector3d vector3_msg;
 
     createTestMsg(header_msg);
     createTestMsg(quaternion_msg);
@@ -1524,7 +1524,7 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::IMU &_msg)
+  void compareTestMsg(const gz::msgs::IMU &_msg)
   {
     compareTestMsg(_msg.header());
     compareTestMsg(_msg.orientation());
@@ -1534,7 +1534,7 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Axis &_msg)
+  void createTestMsg(gz::msgs::Axis &_msg)
   {
     _msg.set_position(1.0);
     _msg.set_velocity(2.0);
@@ -1543,9 +1543,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Axis &_msg)
+  void compareTestMsg(const gz::msgs::Axis &_msg)
   {
-    ignition::msgs::Axis expected_msg;
+    gz::msgs::Axis expected_msg;
     createTestMsg(expected_msg);
 
     EXPECT_DOUBLE_EQ(expected_msg.position(), _msg.position());
@@ -1555,9 +1555,9 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Model &_msg)
+  void createTestMsg(gz::msgs::Model &_msg)
   {
-    ignition::msgs::Header header_msg;
+    gz::msgs::Header header_msg;
     createTestMsg(header_msg);
     _msg.mutable_header()->CopyFrom(header_msg);
 
@@ -1566,7 +1566,7 @@ namespace testing
       auto newJoint = _msg.add_joint();
       newJoint->set_name("joint_" + std::to_string(i));
 
-      ignition::msgs::Axis axis_msg;
+      gz::msgs::Axis axis_msg;
       createTestMsg(axis_msg);
       newJoint->mutable_axis1()->CopyFrom(axis_msg);
     }
@@ -1574,9 +1574,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Model &_msg)
+  void compareTestMsg(const gz::msgs::Model &_msg)
   {
-    ignition::msgs::Model expected_msg;
+    gz::msgs::Model expected_msg;
     createTestMsg(expected_msg);
 
     compareTestMsg(_msg.header());
@@ -1591,9 +1591,9 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::LaserScan &_msg)
+  void createTestMsg(gz::msgs::LaserScan &_msg)
   {
-    ignition::msgs::Header header_msg;
+    gz::msgs::Header header_msg;
     createTestMsg(header_msg);
 
     const unsigned int num_readings = 100u;
@@ -1619,9 +1619,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::LaserScan &_msg)
+  void compareTestMsg(const gz::msgs::LaserScan &_msg)
   {
-    ignition::msgs::LaserScan expected_msg;
+    gz::msgs::LaserScan expected_msg;
     createTestMsg(expected_msg);
 
     compareTestMsg(_msg.header());
@@ -1650,10 +1650,10 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Magnetometer &_msg)
+  void createTestMsg(gz::msgs::Magnetometer &_msg)
   {
-    ignition::msgs::Header header_msg;
-    ignition::msgs::Vector3d vector3_msg;
+    gz::msgs::Header header_msg;
+    gz::msgs::Vector3d vector3_msg;
 
     createTestMsg(header_msg);
     createTestMsg(vector3_msg);
@@ -1664,7 +1664,7 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Magnetometer &_msg)
+  void compareTestMsg(const gz::msgs::Magnetometer &_msg)
   {
     compareTestMsg(_msg.header());
     compareTestMsg(_msg.field_tesla());
@@ -1672,9 +1672,9 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::NavSat &_msg)
+  void createTestMsg(gz::msgs::NavSat &_msg)
   {
-    ignition::msgs::Header header_msg;
+    gz::msgs::Header header_msg;
     createTestMsg(header_msg);
 
     _msg.mutable_header()->CopyFrom(header_msg);
@@ -1689,9 +1689,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::NavSat &_msg)
+  void compareTestMsg(const gz::msgs::NavSat &_msg)
   {
-    ignition::msgs::NavSat expected_msg;
+    gz::msgs::NavSat expected_msg;
     createTestMsg(expected_msg);
     
     compareTestMsg(_msg.header());
@@ -1705,9 +1705,9 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Actuators &_msg)
+  void createTestMsg(gz::msgs::Actuators &_msg)
   {
-    ignition::msgs::Header header_msg;
+    gz::msgs::Header header_msg;
 
     createTestMsg(header_msg);
     _msg.mutable_header()->CopyFrom(header_msg);
@@ -1722,9 +1722,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Actuators &_msg)
+  void compareTestMsg(const gz::msgs::Actuators &_msg)
   {
-    ignition::msgs::Actuators expected_msg;
+    gz::msgs::Actuators expected_msg;
     createTestMsg(expected_msg);
 
     compareTestMsg(_msg.header());
@@ -1739,10 +1739,10 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::OccupancyGrid &_msg)
+  void createTestMsg(gz::msgs::OccupancyGrid &_msg)
   {
-    ignition::msgs::Header header_msg;
-    ignition::msgs::Pose pose_msg;
+    gz::msgs::Header header_msg;
+    gz::msgs::Pose pose_msg;
 
     createTestMsg(header_msg);
     createTestMsg(pose_msg);
@@ -1763,7 +1763,7 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::OccupancyGrid &_msg)
+  void compareTestMsg(const gz::msgs::OccupancyGrid &_msg)
   {
     compareTestMsg(_msg.header());
 
@@ -1780,11 +1780,11 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Odometry &_msg)
+  void createTestMsg(gz::msgs::Odometry &_msg)
   {
-    ignition::msgs::Header header_msg;
-    ignition::msgs::Pose pose_msg;
-    ignition::msgs::Twist twist_msg;
+    gz::msgs::Header header_msg;
+    gz::msgs::Pose pose_msg;
+    gz::msgs::Twist twist_msg;
 
     createTestMsg(header_msg);
     createTestMsg(pose_msg);
@@ -1797,7 +1797,7 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Odometry &_msg)
+  void compareTestMsg(const gz::msgs::Odometry &_msg)
   {
     compareTestMsg(_msg.header());
     compareTestMsg(_msg.pose());
@@ -1806,17 +1806,17 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::PointCloudPacked &_msg)
+  void createTestMsg(gz::msgs::PointCloudPacked &_msg)
   {
-    ignition::msgs::Header header_msg;
+    gz::msgs::Header header_msg;
 
     createTestMsg(header_msg);
 
     _msg.mutable_header()->CopyFrom(header_msg);
-    ignition::msgs::PointCloudPacked::Field *field = _msg.add_field();
+    gz::msgs::PointCloudPacked::Field *field = _msg.add_field();
     field->set_name("x");
     field->set_offset(0);
-    field->set_datatype(ignition::msgs::PointCloudPacked::Field::FLOAT32);
+    field->set_datatype(gz::msgs::PointCloudPacked::Field::FLOAT32);
     field->set_count(1);
 
     uint32_t height = 4;
@@ -1846,7 +1846,7 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::PointCloudPacked &_msg)
+  void compareTestMsg(const gz::msgs::PointCloudPacked &_msg)
   {
     compareTestMsg(_msg.header());
 
@@ -1877,9 +1877,9 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::BatteryState &_msg)
+  void createTestMsg(gz::msgs::BatteryState &_msg)
   {
-    ignition::msgs::Header header_msg;
+    gz::msgs::Header header_msg;
     createTestMsg(header_msg);
 
     _msg.mutable_header()->CopyFrom(header_msg);
@@ -1888,14 +1888,14 @@ namespace testing
     _msg.set_charge(789);
     _msg.set_capacity(321);
     _msg.set_percentage(654);
-    _msg.set_power_supply_status(ignition::msgs::BatteryState::DISCHARGING);
+    _msg.set_power_supply_status(gz::msgs::BatteryState::DISCHARGING);
   }
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::BatteryState &_msg)
+  void compareTestMsg(const gz::msgs::BatteryState &_msg)
   {
-    ignition::msgs::BatteryState expected_msg;
+    gz::msgs::BatteryState expected_msg;
     createTestMsg(expected_msg);
 
     ASSERT_TRUE(expected_msg.has_header());
@@ -1912,17 +1912,17 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Marker &_msg)
+  void createTestMsg(gz::msgs::Marker &_msg)
   {
-    ignition::msgs::Header header_msg;
+    gz::msgs::Header header_msg;
     createTestMsg(header_msg);
 
     _msg.mutable_header()->CopyFrom(header_msg);
 
-    _msg.set_action(ignition::msgs::Marker::ADD_MODIFY);
+    _msg.set_action(gz::msgs::Marker::ADD_MODIFY);
     _msg.set_ns("foo");
     _msg.set_id(123);
-    _msg.set_type(ignition::msgs::Marker::BOX);
+    _msg.set_type(gz::msgs::Marker::BOX);
     _msg.mutable_lifetime()->set_sec(100);
     _msg.mutable_lifetime()->set_nsec(200);
 
@@ -1941,9 +1941,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Marker &_msg)
+  void compareTestMsg(const gz::msgs::Marker &_msg)
   {
-    ignition::msgs::Marker expected_msg;
+    gz::msgs::Marker expected_msg;
     createTestMsg(expected_msg);
 
     ASSERT_TRUE(expected_msg.has_header());
@@ -1971,7 +1971,7 @@ namespace testing
 
   /// \brief Create a message used for testing.
   /// \param[out] _msg The message populated.
-  void createTestMsg(ignition::msgs::Marker_V &_msg)
+  void createTestMsg(gz::msgs::Marker_V &_msg)
   {
     // Not setting header because the ROS MarkerArray doesn't use it.
     createTestMsg(*_msg.add_marker());
@@ -1979,9 +1979,9 @@ namespace testing
 
   /// \brief Compare a message with the populated for testing.
   /// \param[in] _msg The message to compare.
-  void compareTestMsg(const ignition::msgs::Marker_V &_msg)
+  void compareTestMsg(const gz::msgs::Marker_V &_msg)
   {
-    ignition::msgs::Marker_V expected_msg;
+    gz::msgs::Marker_V expected_msg;
     createTestMsg(expected_msg);
 
     compareTestMsg(_msg.marker(0));
