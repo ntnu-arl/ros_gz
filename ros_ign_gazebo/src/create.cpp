@@ -15,10 +15,10 @@
  *
 */
 #include <gflags/gflags.h>
-#include <ignition/math/Pose3.hh>
-#include <ignition/msgs/entity_factory.pb.h>
-#include <ignition/msgs/Utility.hh>
-#include <ignition/transport/Node.hh>
+#include <gz/math/Pose3.hh>
+#include <gz/msgs/entity_factory.pb.h>
+#include <gz/msgs/Utility.hh>
+#include <gz/transport/Node.hh>
 #include <ros/ros.h>
 
 #include <sstream>

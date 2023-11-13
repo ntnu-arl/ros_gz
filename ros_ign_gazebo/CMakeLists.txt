@@ -8,45 +8,60 @@ find_package(catkin
     roscpp
 )
 
-# Fortress
-if ("$ENV{IGNITION_VERSION}" STREQUAL "fortress")
-  find_package(ignition-transport11 REQUIRED)
-  set(IGN_TRANSPORT_VER ${ignition-transport11_VERSION_MAJOR})
+find_package(gz-math7 REQUIRED)
+set(GZ_MATH_VER ${gz-math7_VERSION_MAJOR})
 
-  find_package(ignition-msgs8 REQUIRED)
-  set(IGN_MSGS_VER ${ignition-msgs8_VERSION_MAJOR})
+find_package(gz-transport12 REQUIRED)
+set(GZ_TRANSPORT_VER ${gz-transport12_VERSION_MAJOR})
 
-  find_package(ignition-gazebo6 REQUIRED)
-  set(IGN_GAZEBO_VER ${ignition-gazebo6_VERSION_MAJOR})
+find_package(gz-msgs9 REQUIRED)
+set(GZ_MSGS_VER ${gz-msgs9_VERSION_MAJOR})
 
-  message(STATUS "Compiling against Ignition Fortress")
-# Edifice
-elseif ("$ENV{IGNITION_VERSION}" STREQUAL "edifice")
-  find_package(ignition-transport10 REQUIRED)
-  set(IGN_TRANSPORT_VER ${ignition-transport10_VERSION_MAJOR})
+find_package(gz-sim7 REQUIRED)
+set(GZ_SIM_VER ${gz-sim7_VERSION_MAJOR})
 
-  find_package(ignition-msgs7 REQUIRED)
-  set(IGN_MSGS_VER ${ignition-msgs7_VERSION_MAJOR})
+set(GZ_TARGET_PREFIX gz)
 
-  find_package(ignition-gazebo5 REQUIRED)
-  set(IGN_GAZEBO_VER ${ignition-gazebo5_VERSION_MAJOR})
+# # Fortress
+# if ("$ENV{IGNITION_VERSION}" STREQUAL "fortress")
+#   find_package(ignition-transport11 REQUIRED)
+#   set(IGN_TRANSPORT_VER ${ignition-transport11_VERSION_MAJOR})
 
-  message(STATUS "Compiling against Ignition Edifice")
-# Default to Citadel
-else()
-  find_package(ignition-transport8 REQUIRED)
-  set(IGN_TRANSPORT_VER ${ignition-transport8_VERSION_MAJOR})
+#   find_package(ignition-msgs8 REQUIRED)
+#   set(IGN_MSGS_VER ${ignition-msgs8_VERSION_MAJOR})
 
-  find_package(ignition-msgs5 REQUIRED)
-  set(IGN_MSGS_VER ${ignition-msgs5_VERSION_MAJOR})
+#   find_package(ignition-gazebo6 REQUIRED)
+#   set(IGN_GAZEBO_VER ${ignition-gazebo6_VERSION_MAJOR})
 
-  find_package(ignition-gazebo3 REQUIRED)
-  set(IGN_GAZEBO_VER ${ignition-gazebo3_VERSION_MAJOR})
+#   message(STATUS "Compiling against Ignition Fortress")
+# # Edifice
+# elseif ("$ENV{IGNITION_VERSION}" STREQUAL "edifice")
+#   find_package(ignition-transport10 REQUIRED)
+#   set(IGN_TRANSPORT_VER ${ignition-transport10_VERSION_MAJOR})
 
-  message(STATUS "Compiling against Ignition Citadel")
-endif()
+#   find_package(ignition-msgs7 REQUIRED)
+#   set(IGN_MSGS_VER ${ignition-msgs7_VERSION_MAJOR})
 
-ign_find_package(gflags
+#   find_package(ignition-gazebo5 REQUIRED)
+#   set(IGN_GAZEBO_VER ${ignition-gazebo5_VERSION_MAJOR})
+
+#   message(STATUS "Compiling against Ignition Edifice")
+# # Default to Citadel
+# else()
+#   find_package(ignition-transport8 REQUIRED)
+#   set(IGN_TRANSPORT_VER ${ignition-transport8_VERSION_MAJOR})
+
+#   find_package(ignition-msgs5 REQUIRED)
+#   set(IGN_MSGS_VER ${ignition-msgs5_VERSION_MAJOR})
+
+#   find_package(ignition-gazebo3 REQUIRED)
+#   set(IGN_GAZEBO_VER ${ignition-gazebo3_VERSION_MAJOR})
+
+#   message(STATUS "Compiling against Ignition Citadel")
+# endif()
+
+
+gz_find_package(gflags
     REQUIRED
     PKGCONFIG gflags)
 
@@ -64,8 +79,8 @@ foreach(exec ${cpp_execs})
   target_link_libraries(${exec}
     ${catkin_LIBRARIES}
     gflags
-    ignition-msgs${IGN_MSGS_VER}::core
-    ignition-transport${IGN_TRANSPORT_VER}::core
+    gz-msgs${GZ_MSGS_VER}::core
+    gz-transport${GZ_TRANSPORT_VER}::core
   )
   install(TARGETS ${exec}
     RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -74,7 +89,7 @@ endforeach()
 
 install(
   PROGRAMS
-    scripts/ign_gazebo
+    scripts/gz_gazebo
   DESTINATION
     ${CATKIN_PACKAGE_BIN_DESTINATION})
 

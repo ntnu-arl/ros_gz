@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<!-- <?xml version="1.0"?> -->
 <launch>
   <arg name="ign_args" default=""/>
 
@@ -6,7 +6,7 @@
 
   <node
     pkg="ros_ign_gazebo"
-    type="ign_gazebo"
+    type="gz_gazebo"
     name="ign_gazebo"
     output="screen"
     required="true"

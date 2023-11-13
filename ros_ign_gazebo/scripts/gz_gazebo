@@ -13,5 +13,5 @@ do
     new="$new $arg"
   fi
 done
-ign gazebo $new
-# gz sim $new
+#ign gazebo $new
+gz sim $new
