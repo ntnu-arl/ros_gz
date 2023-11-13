@@ -20,20 +20,22 @@
   <depend>tf2_msgs</depend>
   <depend>visualization_msgs</depend>
   <!-- Garden (default) -->
-  <depend condition="$IGNITION_VERSION == garden">gz-msgs9</depend>
-  <depend condition="$IGNITION_VERSION == garden">gz-transport12</depend>
+  <depend>gz-msgs9</depend>
+  <depend>gz-transport12</depend>
+  <!-- <depend condition="$IGNITION_VERSION == garden">gz-msgs9</depend>
+  <depend condition="$IGNITION_VERSION == garden">gz-transport12</depend> -->
 
   <!-- Fortress -->
-  <depend condition="$IGNITION_VERSION == fortress">ignition-msgs8</depend>
-  <depend condition="$IGNITION_VERSION == fortress">ignition-transport11</depend>
+  <!-- <depend condition="$IGNITION_VERSION == fortress">ignition-msgs8</depend>
+  <depend condition="$IGNITION_VERSION == fortress">ignition-transport11</depend> -->
   <!-- Edifice -->
-  <depend condition="$IGNITION_VERSION == edifice">ignition-msgs7</depend>
-  <depend condition="$IGNITION_VERSION == edifice">ignition-transport10</depend>
+  <!-- <depend condition="$IGNITION_VERSION == edifice">ignition-msgs7</depend>
+  <depend condition="$IGNITION_VERSION == edifice">ignition-transport10</depend> -->
   <!-- Citadel (default) -->
-  <depend condition="$IGNITION_VERSION == citadel">ignition-msgs5</depend>
+  <!-- <depend condition="$IGNITION_VERSION == citadel">ignition-msgs5</depend>
   <depend condition="$IGNITION_VERSION == citadel">ignition-transport8</depend>
   <depend condition="$IGNITION_VERSION == ''">ignition-msgs5</depend>
-  <depend condition="$IGNITION_VERSION == ''">ignition-transport8</depend>
+  <depend condition="$IGNITION_VERSION == ''">ignition-transport8</depend> -->
 
   <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>

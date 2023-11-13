@@ -20,35 +20,42 @@ find_package(catkin REQUIRED COMPONENTS
                tf2_msgs
                visualization_msgs)
 
-# Fortress
-if ("$ENV{IGNITION_VERSION}" STREQUAL "fortress")
-  find_package(ignition-transport11 REQUIRED)
-  set(IGN_TRANSPORT_VER ${ignition-transport11_VERSION_MAJOR})
+find_package(gz-transport12 REQUIRED)
+find_package(gz-msgs9 REQUIRED)
+set(GZ_TARGET_PREFIX gz)
+set(GZ_MSGS_VER ${gz-msgs9_VERSION_MAJOR})
+set(GZ_TRANSPORT_VER ${gz-transport12_VERSION_MAJOR})
 
-  find_package(ignition-msgs8 REQUIRED)
-  set(IGN_MSGS_VER ${ignition-msgs8_VERSION_MAJOR})
 
-  message(STATUS "Compiling against Ignition Fortress")
-# Edifice
-elseif ("$ENV{IGNITION_VERSION}" STREQUAL "edifice")
-  find_package(ignition-transport10 REQUIRED)
-  set(IGN_TRANSPORT_VER ${ignition-transport10_VERSION_MAJOR})
+# # Fortress
+# if ("$ENV{IGNITION_VERSION}" STREQUAL "fortress")
+#   find_package(ignition-transport11 REQUIRED)
+#   set(IGN_TRANSPORT_VER ${ignition-transport11_VERSION_MAJOR})
 
-  find_package(ignition-msgs7 REQUIRED)
-  set(IGN_MSGS_VER ${ignition-msgs7_VERSION_MAJOR})
+#   find_package(ignition-msgs8 REQUIRED)
+#   set(IGN_MSGS_VER ${ignition-msgs8_VERSION_MAJOR})
 
-  message(STATUS "Compiling against Ignition Edifice")
-# Default to Citadel
-else()
-  find_package(ignition-transport8 REQUIRED)
-  set(IGN_TRANSPORT_VER ${ignition-transport8_VERSION_MAJOR})
+#   message(STATUS "Compiling against Ignition Fortress")
+# # Edifice
+# elseif ("$ENV{IGNITION_VERSION}" STREQUAL "edifice")
+#   find_package(ignition-transport10 REQUIRED)
+#   set(IGN_TRANSPORT_VER ${ignition-transport10_VERSION_MAJOR})
 
-  find_package(ignition-msgs5 REQUIRED)
-  set(IGN_MSGS_VER ${ignition-msgs5_VERSION_MAJOR})
+#   find_package(ignition-msgs7 REQUIRED)
+#   set(IGN_MSGS_VER ${ignition-msgs7_VERSION_MAJOR})
 
-  message(STATUS "Compiling against Ignition Citadel")
-  add_definitions(-DIGNITION_CITADEL)
-endif()
+#   message(STATUS "Compiling against Ignition Edifice")
+# # Default to Citadel
+# else()
+#   find_package(ignition-transport8 REQUIRED)
+#   set(IGN_TRANSPORT_VER ${ignition-transport8_VERSION_MAJOR})
+
+#   find_package(ignition-msgs5 REQUIRED)
+#   set(IGN_MSGS_VER ${ignition-msgs5_VERSION_MAJOR})
+
+#   message(STATUS "Compiling against Ignition Citadel")
+#   add_definitions(-DIGNITION_CITADEL)
+# endif()
 
 catkin_package()
 
@@ -68,8 +75,8 @@ add_library(${bridge_lib}
 )
 target_link_libraries(${bridge_lib}
   ${catkin_LIBRARIES}
-  ignition-msgs${IGN_MSGS_VER}::core
-  ignition-transport${IGN_TRANSPORT_VER}::core
+  gz-msgs${GZ_MSGS_VER}::core
+  gz-transport${GZ_TRANSPORT_VER}::core
 )
 
 set(bridge_executables
@@ -119,8 +126,8 @@ if(CATKIN_ENABLE_TESTING)
     )
     target_link_libraries(${test_publisher}
       ${catkin_LIBRARIES}
-      ignition-msgs${IGN_MSGS_VER}::core
-      ignition-transport${IGN_TRANSPORT_VER}::core
+      gz-msgs${GZ_MSGS_VER}::core
+      gz-transport${GZ_TRANSPORT_VER}::core
       gtest
       gtest_main
     )
@@ -132,8 +139,8 @@ if(CATKIN_ENABLE_TESTING)
       test/subscribers/${test_subscriber}.cpp)
     target_link_libraries(test_${test_subscriber}
       ${catkin_LIBRARIES}
-      ignition-msgs${IGN_MSGS_VER}::core
-      ignition-transport${IGN_TRANSPORT_VER}::core
+      gz-msgs${GZ_MSGS_VER}::core
+      gz-transport${GZ_TRANSPORT_VER}::core
     )
   endforeach(test_subscriber)
 endif()
