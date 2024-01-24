@@ -14,7 +14,9 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   ros_ign_bridge
   roscpp
-  sensor_msgs)
+  sensor_msgs
+  visualization_msgs
+  nav_msgs)
 
   if(NOT DEFINED ENV{GZ_VERSION})
   set(ENV{GZ_VERSION} "garden")
@@ -128,4 +130,3 @@ foreach(test_subscriber ${test_subscribers})
     ${GZ_TARGET_PREFIX}-transport${GZ_TRANSPORT_VER}::core
   )
 endforeach(test_subscriber)
-

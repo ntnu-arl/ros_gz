@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
                roscpp
                rostest
                sensor_msgs
+               nav_msgs
                std_msgs
                tf2_msgs
                visualization_msgs)
