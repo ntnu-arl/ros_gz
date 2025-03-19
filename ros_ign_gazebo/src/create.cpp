@@ -41,12 +41,12 @@ DEFINE_double(Y, 0, "Yaw component of initial orientation, in radians.");
 // If these are not needed, just use the `ign service` command line instead.
 int main(int _argc, char **_argv)
 {
-  gflags::AllowCommandLineReparsing();
-  gflags::SetUsageMessage(
+  google::AllowCommandLineReparsing();
+  google::SetUsageMessage(
       R"(Usage: create -world [arg] [-file FILE] [-param PARAM] [-string STRING]
                        [-name NAME] [-X X] [-Y Y] [-Z Z] [-Roll ROLL]
                        [-Pitch PITCH] [-Yaw YAW])");
-  gflags::ParseCommandLineFlags(&_argc, &_argv, true);
+  google::ParseCommandLineFlags(&_argc, &_argv, true);
 
   ros::init(_argc, _argv, "ign_create");
   ros::NodeHandle nh;
